@@ -936,6 +936,318 @@
     }
 
     /* ─────────────────────────────
+       INTERNAL COMPANY ACCESS GATE
+    ───────────────────────────── */
+    .access-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: radial-gradient(circle 600px at 50% 50%, rgba(4, 140, 252, 0.08) 0%, rgba(2, 7, 36, 0.96) 65%, #020724 100%);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      transition: opacity 350ms cubic-bezier(0.2, 0.8, 0.2, 1), visibility 350ms ease, transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .access-gate.unlocked {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.02);
+      pointer-events: none;
+    }
+
+    .access-card {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+      padding: clamp(32px, 5vw, 44px) clamp(24px, 4vw, 36px);
+      background: rgba(6, 14, 46, 0.82);
+      border: 1px solid rgba(4, 140, 252, 0.28);
+      border-radius: 28px;
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.85),
+        0 0 60px rgba(4, 140, 252, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: gatePop 450ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+    }
+
+    @keyframes gatePop {
+      0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .access-card.shake {
+      animation: gateShake 420ms ease;
+    }
+
+    @keyframes gateShake {
+      0%, 100% { transform: translateX(0); }
+      20%, 60% { transform: translateX(-8px); }
+      40%, 80% { transform: translateX(8px); }
+    }
+
+    .access-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .access-icon-ring {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: radial-gradient(circle, rgba(4, 140, 252, 0.22) 0%, rgba(25, 45, 228, 0.08) 70%);
+      border: 1px solid rgba(4, 140, 252, 0.4);
+      box-shadow: 0 0 28px rgba(4, 140, 252, 0.35);
+      margin-bottom: 10px;
+    }
+
+    .access-logo-icon {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+
+    .access-brand-title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1;
+    }
+
+    .access-brand-line1 {
+      font-family: "OilvareBase", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      color: #fff;
+    }
+
+    .access-brand-line2 {
+      font-family: "OilvareBase", sans-serif;
+      font-size: 9px;
+      letter-spacing: 0.26em;
+      color: rgba(255, 255, 255, 0.7);
+      margin-top: 2px;
+    }
+
+    .access-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(4, 140, 252, 0.12);
+      border: 1px solid rgba(4, 140, 252, 0.3);
+      color: #70c4ff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .access-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #048cfc;
+      box-shadow: 0 0 8px #048cfc;
+      animation: pulseDot 2s infinite ease-in-out;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 0.6; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.15); }
+    }
+
+    .access-heading {
+      font-size: clamp(20px, 3.5vw, 24px);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-bottom: 8px;
+    }
+
+    .access-subtext {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.68);
+      line-height: 1.55;
+      max-width: 320px;
+      margin-bottom: 24px;
+    }
+
+    .access-subtext strong {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .access-form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .access-input-wrap {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .access-input-icon {
+      position: absolute;
+      left: 14px;
+      color: rgba(4, 140, 252, 0.7);
+      pointer-events: none;
+    }
+
+    .access-input {
+      width: 100%;
+      height: 50px;
+      padding: 0 46px 0 42px;
+      border-radius: 14px;
+      background: rgba(2, 7, 36, 0.75);
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
+      color: #fff;
+      font-size: 15px;
+      letter-spacing: 0.08em;
+      outline: none;
+      transition: all 220ms ease;
+    }
+
+    .access-input::placeholder {
+      color: rgba(255, 255, 255, 0.35);
+      letter-spacing: normal;
+      font-size: 13.5px;
+    }
+
+    .access-input:focus {
+      border-color: #048cfc;
+      background: rgba(2, 7, 36, 0.95);
+      box-shadow: 0 0 0 3px rgba(4, 140, 252, 0.22), 0 0 24px rgba(4, 140, 252, 0.25);
+    }
+
+    .access-toggle-btn {
+      position: absolute;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      display: grid;
+      place-items: center;
+      border: none;
+      background: none;
+      color: rgba(255, 255, 255, 0.45);
+      cursor: pointer;
+      border-radius: 8px;
+      transition: color 200ms ease;
+    }
+
+    .access-toggle-btn:hover {
+      color: #fff;
+    }
+
+    .access-error {
+      min-height: 18px;
+      font-size: 11.5px;
+      font-weight: 500;
+      color: #ff5277;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+
+    .access-error.show {
+      opacity: 1;
+    }
+
+    .access-submit-btn {
+      width: 100%;
+      height: 48px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: linear-gradient(135deg, #048cfc 0%, #192de4 100%);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(4, 140, 252, 0.4);
+      transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+    }
+
+    .access-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(4, 140, 252, 0.55);
+      filter: brightness(1.08);
+    }
+
+    .access-submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .access-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-top: 22px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.02em;
+    }
+
+    .access-footer svg {
+      opacity: 0.6;
+    }
+
+    .portal-lock-btn {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(2, 7, 36, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      color: rgba(255, 255, 255, 0.75);
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: all 220ms ease;
+    }
+
+    .portal-lock-btn:hover {
+      color: #fff;
+      border-color: #048cfc;
+      background: rgba(4, 140, 252, 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 0 18px rgba(4, 140, 252, 0.35);
+    }
+
+    /* ─────────────────────────────
        RESPONSIVE BREAKPOINTS
     ───────────────────────────── */
 
@@ -1069,6 +1381,73 @@
 </head>
 
 <body>
+  <!-- ─────────────────────────────
+       INTERNAL COMPANY ACCESS GATE
+  ───────────────────────────── -->
+  <div class="access-gate" id="accessGate" role="dialog" aria-modal="true" aria-labelledby="gateTitle">
+    <div class="access-card">
+      <div class="access-brand">
+        <div class="access-icon-ring">
+          <img src="LogoAssets/favicon.png" alt="Xcelerate Media Icon" class="access-logo-icon" />
+        </div>
+        <div class="access-brand-title">
+          <span class="access-brand-line1">XCELERATE</span>
+          <span class="access-brand-line2">MEDIA</span>
+        </div>
+      </div>
+
+      <div class="access-badge">
+        <span class="access-badge-dot"></span>
+        <span>INTERNAL OPERATIONS HUB</span>
+      </div>
+
+      <h2 class="access-heading" id="gateTitle">Team Authentication</h2>
+      <p class="access-subtext">
+        Access to <strong>XcelerateOne</strong> is restricted to authorized personnel. Enter your company passcode to continue.
+      </p>
+
+      <form class="access-form" id="accessForm" autocomplete="off">
+        <div class="access-input-wrap">
+          <svg class="access-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/>
+          </svg>
+          <input
+            type="password"
+            id="gatePasscode"
+            class="access-input"
+            placeholder="Enter Company Passcode"
+            required
+            autocomplete="current-password"
+            spellcheck="false"
+          />
+          <button type="button" class="access-toggle-btn" id="togglePasscode" aria-label="Toggle password visibility">
+            <svg id="eyeIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+              <circle cx="12" cy="12" r="3"></circle>
+            </svg>
+          </button>
+        </div>
+
+        <div class="access-error" id="accessError" role="alert" aria-live="polite"></div>
+
+        <button type="submit" class="access-submit-btn" id="accessSubmitBtn">
+          <span>Enter Portal</span>
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </form>
+
+      <div class="access-footer">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+        <span>Protected Gateway • Xcelerate Media</span>
+      </div>
+    </div>
+  </div>
+
   <main class="site" id="site">
 
     <!-- ─────────────────────────────
@@ -1096,6 +1475,12 @@
           id="navLaunchCampaign">
           CASE STUDIES
         </a>
+        <button class="portal-lock-btn" id="lockPortalBtn" title="Lock Portal (Sign Out)" aria-label="Lock Portal">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+            <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </button>
       </div>
 
       <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation" aria-expanded="false">
@@ -1130,6 +1515,13 @@
       <div class="mob-divider"></div>
       <a href="https://xceleratemedia.my.canva.site/" class="mobile-link" id="mobLaunchCampaign" target="_blank"
         rel="noopener noreferrer" style="color: #048cfc; font-weight: 600;">CASE STUDIES ↗</a>
+      <button class="mobile-link" id="mobLockPortalBtn" type="button" style="color: rgba(255, 255, 255, 0.65); margin-top: 4px; border: none; background: none; width: 100%; text-align: left; padding: 10px 0;">
+        <span>Lock Portal (Sign Out)</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+          <path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/>
+        </svg>
+      </button>
     </div>
 
     <!-- ─────────────────────────────
@@ -1468,6 +1860,83 @@
       toast.classList.add("show");
       setTimeout(() => toast.classList.remove("show"), 4000);
     });
+
+    // ─────────────────────────────
+    // 7. INTERNAL ACCESS GATE CONTROLLER
+    // ─────────────────────────────
+    // Supported company passcodes (edit anytime as needed)
+    const COMPANY_PASSCODES = ["xcelerate2026", "xm2026", "Xcelerate2026!"];
+    const AUTH_STORAGE_KEY = "xcelerate_portal_auth_v1";
+
+    const accessGate = document.getElementById("accessGate");
+    const accessForm = document.getElementById("accessForm");
+    const gatePasscode = document.getElementById("gatePasscode");
+    const accessError = document.getElementById("accessError");
+    const accessCard = document.querySelector(".access-card");
+    const togglePasscode = document.getElementById("togglePasscode");
+    const lockPortalBtn = document.getElementById("lockPortalBtn");
+    const mobLockPortalBtn = document.getElementById("mobLockPortalBtn");
+
+    // Check existing auth state on page load
+    function checkAuth() {
+      const isAuth = localStorage.getItem(AUTH_STORAGE_KEY) === "true";
+      if (isAuth) {
+        accessGate.classList.add("unlocked");
+      } else {
+        accessGate.classList.remove("unlocked");
+        setTimeout(() => gatePasscode?.focus(), 250);
+      }
+    }
+
+    // Toggle password visibility (show / hide)
+    togglePasscode?.addEventListener("click", () => {
+      const isPass = gatePasscode.type === "password";
+      gatePasscode.type = isPass ? "text" : "password";
+      togglePasscode.style.color = isPass ? "#048cfc" : "rgba(255, 255, 255, 0.45)";
+    });
+
+    // Form submit verification
+    accessForm?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const entered = gatePasscode.value.trim();
+
+      if (COMPANY_PASSCODES.includes(entered)) {
+        // Correct passcode
+        localStorage.setItem(AUTH_STORAGE_KEY, "true");
+        accessError.classList.remove("show");
+        accessError.textContent = "";
+        accessGate.classList.add("unlocked");
+        gatePasscode.value = "";
+      } else {
+        // Incorrect passcode
+        accessCard.classList.remove("shake");
+        void accessCard.offsetWidth; // re-trigger CSS shake animation
+        accessCard.classList.add("shake");
+        accessError.textContent = "Incorrect passcode. Please check with your team.";
+        accessError.classList.add("show");
+        gatePasscode.focus();
+        gatePasscode.select();
+      }
+    });
+
+    // Lock portal function (re-locks and shows gate)
+    function lockPortal() {
+      localStorage.removeItem(AUTH_STORAGE_KEY);
+      accessGate.classList.remove("unlocked");
+      accessError.classList.remove("show");
+      gatePasscode.value = "";
+      setTimeout(() => gatePasscode?.focus(), 250);
+    }
+
+    lockPortalBtn?.addEventListener("click", lockPortal);
+    mobLockPortalBtn?.addEventListener("click", () => {
+      lockPortal();
+      mobilePanel?.classList.remove("open");
+      menuButton?.classList.remove("open");
+    });
+
+    // Initialize check
+    checkAuth();
   </script>
 </body>
 
