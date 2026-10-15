@@ -25,6 +25,10 @@ A high-impact, immersive agency hero landing page tailored for **Xcelerate Media
   - **Xcelerate360**: [https://xmerp.vercel.app/](https://xmerp.vercel.app/) — Enterprise ERP, Talent Contracts & Billing.
   - **XceleratePulse**: [https://xcelerate-pulse.vercel.app/](https://xcelerate-pulse.vercel.app/) — Live Operational Pulse & Growth Analytics.
   - **Direct Same-Tab Navigation**: Clicking any platform in the top navbar opens it directly in the existing browser window (`target="_self"`), with no extra wrapper navbar, no awkward iframe container, and no new tabs spawned. Employees press the browser Back button to return to XcelerateOne.
+- **Internal Company Access Gate**:
+  - Secure glassmorphism passcode modal protecting the internal portal.
+  - Authorized passcodes: `xcelerate2026`, `xm2026`, `Xcelerate2026!` (configurable in `index.html`).
+  - Session persistent in browser localStorage (`xcelerate_portal_auth_v1`) with quick-lock controls.
 - **Interactive Controls & Modals**:
   - **Primary Action CTA**: Standalone circular arrow button (`↗`) launching the campaign showcase modal.
   - **Launch Campaign Modal**: Full-funnel intake brief with platform selector, budget tier, and instant confirmation.
