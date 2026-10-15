@@ -1,0 +1,26 @@
+# Dependencies
+node_modules/
+.next/
+dist/
+out/
+build/
+.cache/
+
+# Environment and Logs
+.env*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Sub-projects (each maintained in its own dedicated repository)
+/Xcelerate Pulse/
+/Xcelerate360/
+/XcelerateSprint/
+/XM CreatorLens/
+/XMAttend/

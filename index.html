@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>XCELERATE MEDIA — Influencer Marketing Agency</title>
+  <meta name="description"
+    content="Xcelerate Media is a premier influencer marketing agency architecting culture-defining creator campaigns, viral brand moments, and ROI-driven talent partnerships." />
+
+  <!-- Favicon & Touch Icons -->
+  <link rel="icon" type="image/png" href="LogoAssets/favicon.png" />
+  <link rel="apple-touch-icon" href="LogoAssets/favicon.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    @font-face {
+      font-family: 'OilvareBase';
+      src: url('./OilvareBase.woff2') format('woff2');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root {
+      --white: #ffffff;
+      --muted: rgba(255, 255, 255, 0.68);
+      --border: rgba(255, 255, 255, 0.28);
+      --accent: #048cfc;
+      --accent-royal: #192de4;
+      --accent-deep: #1b13a8;
+      --accent-glow: rgba(4, 140, 252, 0.45);
+
+      --side-space: clamp(28px, 5.25vw, 94px);
+      --nav-height: 104px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      background: #020724;
+      color: var(--white);
+      font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      overflow-x: hidden;
+    }
+
+    body {
+      overflow: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      color: inherit;
+      font: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    .site {
+      position: relative;
+      width: 100%;
+      min-height: 100svh;
+      height: 100svh;
+      overflow: hidden;
+      background: #020724;
+      isolation: isolate;
+      user-select: none;
+    }
+
+    /* ─────────────────────────────
+       NAVIGATION
+    ───────────────────────────── */
+
+    .nav {
+      position: absolute;
+      z-index: 40;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: var(--nav-height);
+      padding: 0 var(--side-space);
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: clamp(16px, 2.5vw, 40px);
+
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    .logo {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      width: fit-content;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 0;
+      flex-shrink: 0;
+      transition: transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 200ms ease;
+    }
+
+    .logo-mark {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      margin-bottom: 4px;
+      filter: drop-shadow(0 2px 10px rgba(4, 140, 252, 0.55));
+      transition: transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1), filter 250ms ease;
+    }
+
+    .logo-text-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      line-height: 1.05;
+    }
+
+    .logo-line-1 {
+      font-family: "OilvareBase", -apple-system, sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #ffffff;
+      text-transform: uppercase;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
+    }
+
+    .logo-line-2 {
+      font-family: "OilvareBase", -apple-system, sans-serif;
+      font-size: 8.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: #ffffff;
+      text-transform: uppercase;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.85);
+      margin-top: 1px;
+    }
+
+    .logo:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .logo:hover .logo-mark {
+      transform: scale(1.08);
+      filter: drop-shadow(0 4px 14px rgba(4, 140, 252, 0.85));
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(16px, 2vw, 32px);
+      flex: 1;
+    }
+
+    .nav-link {
+      position: relative;
+      padding: 8px 6px;
+      color: rgba(255, 255, 255, 0.88);
+      font-size: clamp(12.5px, 0.88vw, 14px);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+      transition: color 220ms ease, transform 200ms ease;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      right: 100%;
+      bottom: 0px;
+      left: 0;
+      height: 1.5px;
+      background: linear-gradient(90deg, #048cfc, #192de4);
+      transition: right 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .nav-link:hover {
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .nav-link:hover::after {
+      right: 0;
+    }
+
+    .nav-action-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-shrink: 0;
+    }
+
+    .nav-action {
+      min-height: 42px;
+      padding: 0 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 999px;
+      color: #fff;
+      background: rgba(2, 7, 36, 0.45);
+      box-shadow: 0 0 16px rgba(4, 140, 252, 0.12);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition:
+        color 250ms ease,
+        background 250ms ease,
+        border-color 250ms ease,
+        transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        box-shadow 250ms ease;
+    }
+
+    .nav-action:hover {
+      color: #ffffff;
+      background: linear-gradient(135deg, #048cfc, #192de4);
+      border-color: #048cfc;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 22px rgba(4, 140, 252, 0.45);
+    }
+
+    .menu-button {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: rgba(2, 7, 36, 0.5);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      position: relative;
+    }
+
+    .menu-button span {
+      display: block;
+      width: 15px;
+      height: 1px;
+      margin: 4px auto;
+      background: #fff;
+      transition: transform 250ms ease, opacity 250ms ease;
+    }
+
+    .menu-button.open span:nth-child(1) {
+      transform: translateY(2.5px) rotate(45deg);
+    }
+
+    .menu-button.open span:nth-child(2) {
+      transform: translateY(-2.5px) rotate(-45deg);
+    }
+
+    .mobile-panel {
+      position: absolute;
+      z-index: 39;
+      top: var(--nav-height);
+      right: 18px;
+      left: 18px;
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-12px);
+      background: rgba(2, 7, 36, 0.96);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 20px;
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      transition:
+        opacity 280ms ease,
+        visibility 280ms ease,
+        transform 280ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .mobile-panel.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .mobile-portal-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #048cfc;
+      padding-bottom: 4px;
+    }
+
+    .mobile-panel a {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.88);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: color 200ms ease;
+    }
+
+    .mobile-panel a:hover {
+      color: #fff;
+    }
+
+    .mob-tool-tag {
+      font-size: 9px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 0.02em;
+    }
+
+    .mob-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 4px 0;
+    }
+
+    /* ─────────────────────────────
+       HERO CONTAINER & VISUALS
+    ───────────────────────────── */
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100svh;
+      min-height: 100svh;
+      overflow: hidden;
+      background: #020724;
+      isolation: isolate;
+    }
+
+    /* Canvas disabled to remove tiny moving background particles */
+    .hero-canvas {
+      display: none;
+    }
+
+    .hero-video {
+      position: absolute;
+      z-index: -5;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transform: scale(1.025);
+      mix-blend-mode: screen;
+      filter: brightness(0.40) contrast(1.85) saturate(1.55) hue-rotate(-85deg);
+      transition: transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1s ease;
+      opacity: 0;
+    }
+
+    .hero-video.loaded {
+      opacity: 0.82;
+    }
+
+    .hero:hover .hero-video {
+      transform: scale(1.045);
+    }
+
+    /* Inner Ball (Electric Light Cyan) vs Outer Ball (Deep Royal Blue) Duotone Layers */
+    .particle-duotone {
+      position: absolute;
+      z-index: -4;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle 340px at 50% 50%,
+          #0272d1 0%,
+          #0272d1 18%,
+          #101fa8 44%,
+          #070a48 70%,
+          transparent 88%);
+      mix-blend-mode: color;
+      opacity: 0.90;
+    }
+
+    /* Disabled excessive glow shadow cloud */
+    .particle-core-light {
+      display: none;
+    }
+
+    .video-overlay {
+      position: absolute;
+      z-index: -4;
+      inset: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse 75% 60% at 50% 50%,
+          rgba(2, 7, 36, 0.12) 0%,
+          transparent 35%,
+          rgba(2, 7, 36, 0.45) 75%,
+          rgba(2, 7, 36, 0.95) 100%),
+        linear-gradient(90deg,
+          rgba(2, 7, 36, 0.96) 0%,
+          rgba(2, 7, 36, 0.5) 18%,
+          transparent 35%,
+          transparent 65%,
+          rgba(2, 7, 36, 0.5) 82%,
+          rgba(2, 7, 36, 0.96) 100%),
+        linear-gradient(180deg,
+          rgba(2, 7, 36, 0.45) 0%,
+          transparent 20%,
+          transparent 80%,
+          rgba(2, 7, 36, 0.85) 100%);
+    }
+
+    .hero-vignette {
+      position: absolute;
+      z-index: -3;
+      inset: 0;
+      pointer-events: none;
+      box-shadow:
+        inset 0 0 160px rgba(2, 7, 36, 0.85);
+    }
+
+    .grain {
+      position: absolute;
+      z-index: 20;
+      inset: 0;
+      opacity: 0.045;
+      pointer-events: none;
+      mix-blend-mode: soft-light;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.75) 0.55px, transparent 0.7px);
+      background-size: 5px 5px;
+    }
+
+    /* ─────────────────────────────
+       LARGE CENTER TITLE & CLOSE MEDIA LOCKUP
+    ───────────────────────────── */
+
+    .mega-title-wrap {
+      position: absolute;
+      z-index: 15;
+      top: 51.5%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: inline-flex;
+      align-items: center;
+      pointer-events: none;
+      white-space: nowrap;
+      will-change: transform;
+    }
+
+    .mega-title {
+      color: #fff;
+      font-family: "OilvareBase", -apple-system, sans-serif;
+      font-size: clamp(50px, 7.5vw, 132px);
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: 0.22em;
+      text-align: center;
+      text-indent: 0.22em;
+      white-space: nowrap;
+      user-select: none;
+      text-shadow:
+        0 4px 25px rgba(0, 0, 0, 0.95),
+        0 2px 8px rgba(0, 0, 0, 0.98);
+    }
+
+    .media-kicker {
+      position: absolute;
+      left: calc(100% + clamp(12px, 1.6vw, 28px));
+      bottom: clamp(6px, 1vw, 16px);
+      line-height: 1;
+      color: #fff;
+      font-family: "OilvareBase", -apple-system, sans-serif;
+      font-size: clamp(11.5px, 0.9vw, 15px);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+      white-space: nowrap;
+    }
+
+    /* ─────────────────────────────
+       LEFT CONTENT (TOP KICKER)
+    ───────────────────────────── */
+
+    .left-kicker {
+      position: absolute;
+      z-index: 15;
+      top: 35.5%;
+      left: var(--side-space);
+      color: #fff;
+      font-family: "OilvareBase", -apple-system, sans-serif;
+      font-size: clamp(11px, 0.85vw, 14px);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+    }
+
+    /* ─────────────────────────────
+       LEFT LOWER CONTENT (PARAGRAPH + CIRCULAR BUTTON)
+    ───────────────────────────── */
+
+    .left-lower-content {
+      position: absolute;
+      z-index: 15;
+      left: var(--side-space);
+      bottom: clamp(34px, 5.2vh, 52px);
+      width: clamp(250px, 22vw, 320px);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 22px;
+    }
+
+    .description {
+      width: 100%;
+      max-width: 285px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: clamp(10.5px, 0.74vw, 12.5px);
+      font-weight: 400;
+      line-height: 1.62;
+      letter-spacing: -0.01em;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.95);
+    }
+
+    /* Circular [ ↗ ] Action Button */
+    .action-circle-btn {
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.34);
+      border-radius: 50%;
+      background: rgba(2, 7, 36, 0.55);
+      box-shadow: 0 0 18px rgba(4, 140, 252, 0.16);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      transition:
+        color 250ms ease,
+        background 250ms ease,
+        border-color 250ms ease,
+        transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1),
+        box-shadow 250ms ease;
+    }
+
+    .action-circle-btn svg {
+      width: 16px;
+      height: 16px;
+      transition: transform 250ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .action-circle-btn:hover {
+      color: #050505;
+      background: #ffffff;
+      border-color: #ffffff;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 0 28px rgba(4, 140, 252, 0.45);
+    }
+
+    .action-circle-btn:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    /* ─────────────────────────────
+       BOTTOM RIGHT (SOCIAL ICONS: INSTAGRAM & LINKEDIN ONLY)
+    ───────────────────────────── */
+
+    .socials {
+      position: absolute;
+      z-index: 15;
+      right: var(--side-space);
+      bottom: clamp(38px, 5.2vh, 52px);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .social-link {
+      width: 20px;
+      height: 20px;
+      display: grid;
+      place-items: center;
+      opacity: 0.82;
+      filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
+      transition: opacity 220ms ease, transform 220ms ease, color 220ms ease;
+      color: #fff;
+    }
+
+    .social-link:hover {
+      opacity: 1;
+      transform: translateY(-3px);
+      color: #048cfc;
+    }
+
+    .social-link svg {
+      width: 17px;
+      height: 17px;
+    }
+
+    /* ─────────────────────────────
+       INTRO REVEAL ANIMATIONS
+    ───────────────────────────── */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: revealUp 850ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    .logo {
+      animation-delay: 80ms;
+    }
+
+    .nav-links {
+      animation-delay: 150ms;
+    }
+
+    .nav-action-wrap {
+      animation-delay: 220ms;
+    }
+
+    .left-kicker {
+      animation-delay: 340ms;
+    }
+
+    .left-lower-content {
+      animation-delay: 440ms;
+    }
+
+    .socials {
+      animation-delay: 620ms;
+    }
+
+    .mega-title-wrap {
+      opacity: 0;
+      animation: titleReveal 1.15s 400ms cubic-bezier(0.15, 0.8, 0.2, 1) forwards;
+    }
+
+    @keyframes revealUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes titleReveal {
+      from {
+        opacity: 0;
+        filter: blur(12px);
+        transform: translate(-50%, -46%) scale(0.97);
+      }
+
+      to {
+        opacity: 1;
+        filter: blur(0);
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+
+
+    /* ─────────────────────────────
+       INTERACTIVE MODALS & DRAWERS
+    ───────────────────────────── */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 300ms ease, visibility 300ms ease;
+    }
+
+    .modal-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      position: relative;
+      width: 100%;
+      max-width: 580px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: rgba(2, 7, 36, 0.94);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      padding: clamp(28px, 4vw, 44px);
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(4, 140, 252, 0.2);
+      transform: translateY(24px) scale(0.97);
+      transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    .modal-overlay.open .modal-card {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.05);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      color: #fff;
+      transition: background 200ms ease, transform 200ms ease;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    .modal-header {
+      margin-bottom: 24px;
+    }
+
+    .modal-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #048cfc;
+      margin-bottom: 8px;
+    }
+
+    .modal-title {
+      font-family: "Montserrat", sans-serif;
+      font-size: 26px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .modal-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Form inside Launch Campaign */
+    .project-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      padding: 12px 16px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 12px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 200ms ease, background 200ms ease, box-shadow 200ms ease;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus,
+    .form-select:focus {
+      border-color: #048cfc;
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 15px rgba(4, 140, 252, 0.28);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 85px;
+    }
+
+    .form-submit {
+      margin-top: 10px;
+      padding: 14px 28px;
+      border-radius: 999px;
+      background: #fff;
+      color: #000;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: background 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+    }
+
+    .form-submit:hover {
+      background: #048cfc;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(4, 140, 252, 0.45);
+    }
+
+    /* Campaigns Grid Overlay */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .project-card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 20px;
+      transition: border-color 250ms ease, transform 250ms ease, background 250ms ease;
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      border-color: rgba(4, 140, 252, 0.6);
+      background: rgba(255, 255, 255, 0.06);
+      transform: translateY(-4px);
+    }
+
+    .project-year {
+      font-size: 9px;
+      font-weight: 600;
+      color: #048cfc;
+      letter-spacing: 0.08em;
+      margin-bottom: 6px;
+    }
+
+    .project-card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .project-card-desc {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.5;
+    }
+
+    /* Toast Notification */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(80px);
+      background: rgba(12, 12, 16, 0.95);
+      border: 1px solid rgba(4, 140, 252, 0.5);
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 200;
+      opacity: 0;
+      transition: transform 300ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 300ms ease;
+      pointer-events: none;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    /* ─────────────────────────────
+       RESPONSIVE BREAKPOINTS
+    ───────────────────────────── */
+
+    @media (max-width: 1050px) {
+      :root {
+        --side-space: clamp(24px, 4vw, 50px);
+      }
+
+      .nav-links {
+        gap: clamp(10px, 1.4vw, 20px);
+      }
+
+      .nav-link {
+        font-size: 11.5px;
+        padding: 6px 3px;
+      }
+
+      .mega-title {
+        font-size: clamp(48px, 8vw, 88px);
+        letter-spacing: 0.23em;
+        text-indent: 0.23em;
+      }
+
+      .media-kicker {
+        font-size: 11px;
+      }
+
+      .left-kicker {
+        top: 32%;
+      }
+    }
+
+    @media (max-width: 860px) {
+
+      .nav-links,
+      .nav-action-wrap {
+        display: none;
+      }
+
+      .menu-button {
+        display: block;
+      }
+    }
+
+    @media (max-width: 768px) {
+      :root {
+        --side-space: 20px;
+        --nav-height: 76px;
+      }
+
+      .logo-mark {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 2px;
+      }
+
+      .logo-line-1 {
+        font-size: 8.5px;
+      }
+
+      .logo-line-2 {
+        font-size: 7px;
+      }
+
+      .menu-button {
+        display: block;
+      }
+
+      .mega-title-wrap {
+        top: 34%;
+        width: calc(100% - 30px);
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .mega-title {
+        white-space: normal;
+        word-break: break-word;
+        font-size: clamp(38px, 12vw, 68px);
+        line-height: 0.96;
+        letter-spacing: 0.14em;
+        text-indent: 0.14em;
+      }
+
+      .media-kicker {
+        position: static;
+        transform: none;
+        font-size: 11px;
+        letter-spacing: 0.22em;
+      }
+
+      .left-kicker {
+        top: 24%;
+        font-size: 11px;
+      }
+
+      .left-lower-content {
+        bottom: 24px;
+        width: calc(100% - 40px);
+      }
+
+      .description {
+        max-width: 260px;
+        font-size: 11px;
+      }
+
+      .action-circle-btn {
+        width: 44px;
+        height: 44px;
+      }
+
+      .socials {
+        right: var(--side-space);
+        bottom: 30px;
+        gap: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="site" id="site">
+
+    <!-- ─────────────────────────────
+         NAVIGATION
+    ───────────────────────────── -->
+    <header class="nav">
+      <a class="logo reveal" href="#" aria-label="Xcelerate Media Home">
+        <img src="LogoAssets/favicon.png" alt="Xcelerate Media Logo" class="logo-mark" />
+        <div class="logo-text-stack">
+          <span class="logo-line-1">XCELERATE</span>
+          <span class="logo-line-2">MEDIA</span>
+        </div>
+      </a>
+
+      <nav class="nav-links reveal" aria-label="Company Platforms">
+        <a class="nav-link" href="https://creatorlens-alpha.vercel.app/" target="_self">XM CreatorLens</a>
+        <a class="nav-link" href="https://xcelerate-sprint.vercel.app/" target="_self">XcelerateSprint</a>
+        <a class="nav-link" href="https://xmattend.vercel.app/" target="_self">XMAttend</a>
+        <a class="nav-link" href="https://xmerp.vercel.app/" target="_self">Xcelerate360</a>
+        <a class="nav-link" href="https://xcelerate-pulse.vercel.app/" target="_self">XceleratePulse</a>
+      </nav>
+
+      <div class="nav-action-wrap reveal">
+        <a class="nav-action" href="https://xceleratemedia.my.canva.site/" target="_blank" rel="noopener noreferrer"
+          id="navLaunchCampaign">
+          CASE STUDIES
+        </a>
+      </div>
+
+      <button class="menu-button" id="menuButton" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div class="mobile-panel" id="mobilePanel" role="region" aria-label="Mobile Navigation">
+      <div class="mobile-portal-label">Xcelerate Platforms</div>
+      <a href="https://creatorlens-alpha.vercel.app/" class="mobile-link" target="_self">
+        <span>XM CreatorLens</span>
+        <span class="mob-tool-tag">Creator Intel</span>
+      </a>
+      <a href="https://xcelerate-sprint.vercel.app/" class="mobile-link" target="_self">
+        <span>XcelerateSprint</span>
+        <span class="mob-tool-tag">Sprint</span>
+      </a>
+      <a href="https://xmattend.vercel.app/" class="mobile-link" target="_self">
+        <span>XMAttend</span>
+        <span class="mob-tool-tag">Attendance</span>
+      </a>
+      <a href="https://xmerp.vercel.app/" class="mobile-link" target="_self">
+        <span>Xcelerate360</span>
+        <span class="mob-tool-tag">ERP</span>
+      </a>
+      <a href="https://xcelerate-pulse.vercel.app/" class="mobile-link" target="_self">
+        <span>XceleratePulse</span>
+        <span class="mob-tool-tag">Analytics</span>
+      </a>
+      <div class="mob-divider"></div>
+      <a href="https://xceleratemedia.my.canva.site/" class="mobile-link" id="mobLaunchCampaign" target="_blank"
+        rel="noopener noreferrer" style="color: #048cfc; font-weight: 600;">CASE STUDIES ↗</a>
+    </div>
+
+    <!-- ─────────────────────────────
+         HERO SECTION
+    ───────────────────────────── -->
+    <section class="hero" id="hero">
+      <!-- High-performance Canvas Fallback / Glow Layer -->
+      <canvas id="particleCanvas" class="hero-canvas"></canvas>
+
+      <!-- Pexels Neon Particle Video Background -->
+      <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto">
+        <source src="https://videos.pexels.com/video-files/34637934/14681026_1920_1080_30fps.mp4" type="video/mp4" />
+        Your browser does not support background video.
+      </video>
+
+      <!-- Inner Ball (Light Cyan) vs Outer Ball (Deep Royal Blue) Differentiation -->
+      <div class="particle-duotone"></div>
+      <div class="particle-core-light"></div>
+
+      <!-- Cinema Overlays & Grain -->
+      <div class="video-overlay"></div>
+      <div class="hero-vignette"></div>
+      <div class="grain"></div>
+
+      <!-- Mid-Left Kicker -->
+      <div class="left-kicker reveal">
+        Influencer Marketing
+      </div>
+
+      <!-- Center Mega Title with Close MEDIA Lockup -->
+      <div class="mega-title-wrap" id="megaTitleWrap">
+        <h1 class="mega-title" id="megaTitle">
+          XCELERATE
+        </h1>
+        <div class="media-kicker" id="mediaKicker">
+          MEDIA
+        </div>
+      </div>
+
+      <!-- Bottom-Left: Description & Circular [ ↗ ] Control -->
+      <div class="left-lower-content reveal">
+        <p class="description">
+          We architect culture-defining creator campaigns where viral influence, performance data, and storytelling
+          scale iconic brands.
+        </p>
+
+        <a class="action-circle-btn" id="actionExploreBtn" href="https://xceleratemedia.in/" target="_blank"
+          rel="noopener noreferrer" aria-label="Visit Xcelerate Media Website">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 18L18 6M8 6H18V16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Bottom-Right: Social Icons (Instagram & LinkedIn Only) -->
+      <div class="socials reveal">
+        <a class="social-link" href="https://www.instagram.com/xcelerate_media/" target="_blank"
+          rel="noopener noreferrer" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="4" y="4" width="16" height="16" rx="5" stroke="currentColor" stroke-width="1.5" />
+            <circle cx="12" cy="12" r="3.5" stroke="currentColor" stroke-width="1.5" />
+            <circle cx="17.2" cy="6.9" r="1" fill="currentColor" />
+          </svg>
+        </a>
+
+        <a class="social-link" href="https://www.linkedin.com/company/xcelerate-media/" target="_blank"
+          rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <rect x="2" y="9" width="4" height="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="1.5" />
+          </svg>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- ─────────────────────────────
+       MODALS: LAUNCH CAMPAIGN & SHOWCASES
+  ───────────────────────────── -->
+  <!-- Campaign Brief Modal -->
+  <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="closeContact" aria-label="Close dialog">✕</button>
+      <div class="modal-header">
+        <span class="modal-tag">Campaign Brief / Talent Booking</span>
+        <h2 class="modal-title" id="contactTitle">Launch Your Campaign</h2>
+        <p class="modal-desc">
+          Partner with top-tier creators across YouTube, TikTok, Instagram & Twitch to scale brand awareness and
+          revenue.
+        </p>
+      </div>
+
+      <form class="project-form" id="projectForm">
+        <div class="form-group">
+          <label class="form-label" for="clientName">Brand or Entity</label>
+          <input class="form-input" id="clientName" type="text" placeholder="e.g. Apex Energy / Lumina Apparel"
+            required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="clientEmail">Work Email Address</label>
+          <input class="form-input" id="clientEmail" type="email" placeholder="partnerships@brand.com" required />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="projectScope">Campaign Discipline</label>
+          <select class="form-select" id="projectScope">
+            <option value="full-funnel">Full-Funnel Creator Strategy (YouTube + TikTok)</option>
+            <option value="tiktok-reels">Viral TikTok & Reels Creator Blitz</option>
+            <option value="youtube-sponsorships">Dedicated YouTube Sponsorships & Integrations</option>
+            <option value="ambassadorships">Long-Term Brand Ambassadorships & VIP Talent</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="projectBrief">Target Budget & Campaign Vision</label>
+          <textarea class="form-textarea" id="projectBrief"
+            placeholder="Describe target demographics, launch timeline, and key deliverables..."></textarea>
+        </div>
+
+        <button class="form-submit" type="submit">
+          <span>Submit Campaign Brief</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <path d="M5 12H19M13 6L19 12L13 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Campaigns Showcase Modal -->
+  <div class="modal-overlay" id="projectsModal" role="dialog" aria-modal="true" aria-labelledby="projectsTitle">
+    <div class="modal-card" style="max-width: 680px;">
+      <button class="modal-close" id="closeProjects" aria-label="Close dialog">✕</button>
+      <div class="modal-header">
+        <span class="modal-tag">Featured Brand Activations</span>
+        <h2 class="modal-title" id="projectsTitle">Campaign Index</h2>
+        <p class="modal-desc">Recent creator sprints, multi-platform brand takeovers, and high-ROI influencer marketing
+          campaigns.</p>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-year">2026 • TIKTOK / REELS</div>
+          <div class="project-card-title">APEX ENERGY</div>
+          <div class="project-card-desc">48M+ Organic Impressions • 32 Top-Tier Fitness Creators • +310% DTC Sales Lift.
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-year">2026 • YOUTUBE INTEGRATIONS</div>
+          <div class="project-card-title">CHROMA WEAR</div>
+          <div class="project-card-desc">Dedicated creator integrations across 15 tech & fashion lifestyle channels.
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-year">2025 • VIRAL SPRINT</div>
+          <div class="project-card-title">VALENCE AI</div>
+          <div class="project-card-desc">Global product launch campaign generating 12M+ views and #1 App Store ranking.
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-year">2025 • TWITCH / DISCORD</div>
+          <div class="project-card-title">SYNAPSE GAMING</div>
+          <div class="project-card-desc">Multi-creator live tournament sponsorship and exclusive VIP merch drops.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agency & Strategy Modal -->
+  <div class="modal-overlay" id="infoModal" role="dialog" aria-modal="true" aria-labelledby="infoTitle">
+    <div class="modal-card">
+      <button class="modal-close" id="closeInfo" aria-label="Close dialog">✕</button>
+      <div class="modal-header">
+        <span class="modal-tag" id="infoTag">About Agency</span>
+        <h2 class="modal-title" id="infoTitle">Xcelerate Media</h2>
+        <p class="modal-desc" id="infoDesc">
+          A modern creator agency bridging the gap between visionary brands and the world's most influential voices.
+        </p>
+      </div>
+      <div style="font-size: 13px; line-height: 1.7; color: rgba(255, 255, 255, 0.75);" id="infoBody">
+        <p style="margin-bottom: 14px;">
+          We represent the bridge between visionary brands and the world's most influential creators. From bespoke
+          talent procurement to viral creative strategy and ROI-driven distribution, we engineer campaigns that capture
+          culture.
+        </p>
+        <p>
+          Global Presence: New York • Los Angeles • London. Managing multi-million dollar creator rosters across tech,
+          consumer brands, gaming, and lifestyle verticals.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">Campaign brief received. Our talent strategy team will connect within 24 hours.</div>
+
+  <!-- ─────────────────────────────
+       SCRIPTS: MOUSE PARALLAX, CANVAS & INTERACTIONS
+  ───────────────────────────── -->
+  <script>
+    // Elements
+    const menuButton = document.getElementById("menuButton");
+    const mobilePanel = document.getElementById("mobilePanel");
+    const hero = document.getElementById("hero");
+    const heroVideo = document.getElementById("heroVideo");
+    const megaTitleWrap = document.getElementById("megaTitleWrap");
+    // Modals
+    const contactModal = document.getElementById("contactModal");
+    const projectsModal = document.getElementById("projectsModal");
+    const infoModal = document.getElementById("infoModal");
+    const projectForm = document.getElementById("projectForm");
+    const toast = document.getElementById("toast");
+
+    // ─────────────────────────────
+    // 1. MOBILE MENU TOGGLE
+    // ─────────────────────────────
+    menuButton.addEventListener("click", () => {
+      const isOpen = mobilePanel.classList.toggle("open");
+      menuButton.classList.toggle("open", isOpen);
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute("aria-label", isOpen ? "Close navigation" : "Open navigation");
+    });
+
+    document.querySelectorAll(".mobile-link").forEach(link => {
+      link.addEventListener("click", () => {
+        mobilePanel.classList.remove("open");
+        menuButton.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+
+
+    // ─────────────────────────────
+    // 3. VIDEO LOAD FADE-IN
+    // ─────────────────────────────
+    if (heroVideo) {
+      heroVideo.playbackRate = 0.8;
+      heroVideo.addEventListener("play", () => {
+        heroVideo.playbackRate = 0.8;
+      });
+      if (heroVideo.readyState >= 3) {
+        heroVideo.classList.add("loaded");
+      } else {
+        heroVideo.addEventListener("canplay", () => {
+          heroVideo.playbackRate = 0.8;
+          heroVideo.classList.add("loaded");
+        });
+      }
+    }
+
+    // ─────────────────────────────
+    // 4. MOUSE PARALLAX (Moves XCELERATE + MEDIA together)
+    // ─────────────────────────────
+    const hasFinePointer = window.matchMedia("(pointer: fine)").matches;
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (hasFinePointer && !reducedMotion) {
+      let targetX = 0;
+      let targetY = 0;
+      let currentX = 0;
+      let currentY = 0;
+
+      hero.addEventListener("mousemove", (event) => {
+        const rect = hero.getBoundingClientRect();
+        targetX = (event.clientX - rect.left) / rect.width - 0.5;
+        targetY = (event.clientY - rect.top) / rect.height - 0.5;
+      });
+
+      hero.addEventListener("mouseleave", () => {
+        targetX = 0;
+        targetY = 0;
+      });
+
+      function renderFrame() {
+        // Lerp mega title + media lockup together
+        currentX += (targetX - currentX) * 0.055;
+        currentY += (targetY - currentY) * 0.055;
+        megaTitleWrap.style.marginLeft = `${currentX * -14}px`;
+        megaTitleWrap.style.marginTop = `${currentY * -8}px`;
+
+        requestAnimationFrame(renderFrame);
+      }
+
+      renderFrame();
+    }
+
+    // ─────────────────────────────
+    // 5. CANVAS PARTICLES (DISABLED)
+    // ─────────────────────────────
+    // Tiny background particles removed to keep visual focus purely on the main 3D particle sphere.
+
+    // ─────────────────────────────
+    // 6. MODALS & INTERACTIVE ACTIONS
+    // ─────────────────────────────
+    const openModal = (modal) => modal.classList.add("open");
+    const closeModal = (modal) => modal.classList.remove("open");
+
+    // Modal close controls
+    document.getElementById("closeContact")?.addEventListener("click", () => closeModal(contactModal));
+    document.getElementById("closeProjects")?.addEventListener("click", () => closeModal(projectsModal));
+    document.getElementById("closeInfo")?.addEventListener("click", () => closeModal(infoModal));
+
+    // Close on background click
+    [contactModal, projectsModal, infoModal].forEach(modal => {
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+    });
+
+    // Close on Escape
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        closeModal(contactModal);
+        closeModal(projectsModal);
+        closeModal(infoModal);
+        mobilePanel.classList.remove("open");
+        menuButton.classList.remove("open");
+      }
+    });
+
+    // Form submission
+    projectForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      closeModal(contactModal);
+      projectForm.reset();
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 4000);
+    });
+  </script>
+</body>
+
+</html>
